@@ -6,6 +6,13 @@ execution:
   steps: 5
   scenario: blazemeter-recording
 
+reporting:
+- module: passfail
+  criteria:
+  - avg-rt of confirmation>150ms for 10s, stop as failed
+  - fail of purchase>50% for 10s, stop as failed
+  - fail of reserve>50% for 10s, stop as failed
+
 scenarios:
   blazemeter-recording:
     timeout: 5s
@@ -21,6 +28,7 @@ scenarios:
     requests:
     - /index.php
     - url: '/reserve.php'
+      label: 'reserve'
       method: POST
       headers:
         Content-Type: application/x-www-form-urlencoded
@@ -29,6 +37,7 @@ scenarios:
         toPort: London
     - url: '/purchase.php'
       method: POST
+      label: 'purchase'
       headers:
         Content-Type: application/x-www-form-urlencoded
       body:
@@ -39,7 +48,7 @@ scenarios:
         toPort: London
     - url: '/confirmation.php'
       method: POST
-      label: '/confirmation.php'
+      label: 'confirmation'
       headers:
         Content-Type: application/x-www-form-urlencoded
       body:
