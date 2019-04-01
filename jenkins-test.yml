@@ -9,7 +9,7 @@ execution:
 reporting:
 - module: passfail
   criteria:
-  - avg-rt of confirmation>150ms for 10s, stop as failed
+  - avg-rt of confirmation>2s for 20s, stop as failed
   - fail of purchase>50% for 10s, stop as failed
   - fail of reserve>50% for 10s, stop as failed
 
