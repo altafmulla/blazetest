@@ -8,7 +8,7 @@ scenarios:
     requests:
     - label: blazedemo
       method: GET
-      url: http://blazedemo.com/
+      url: http://blazedemo.com
     - body:
         fromPort: Paris
         toPort: Buenos Aires
@@ -17,4 +17,6 @@ scenarios:
       url: http://blazedemo.com/reserve.php
 reporting:
 - module: final-stats
-- module: console
+- module: junit-xml
+  filename: /blazetest/junit-result.xml
+  data-source: pass-fail
