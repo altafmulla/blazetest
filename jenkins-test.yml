@@ -15,3 +15,6 @@ scenarios:
       label: reserve
       method: POST
       url: http://blazedemo.com/reserve.php
+reporting:
+- module: final-stats
+- module: console
